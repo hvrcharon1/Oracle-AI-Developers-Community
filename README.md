@@ -22,5 +22,6 @@ This repository is structured to provide easy access to critical information:
 *   **MCP**: Learn about Model Context Protocol (MCP) servers and how to integrate them with Oracle AI Database and older versions.
 *   **Fusion Applications**: Explore the AI-centric innovations across Oracle Fusion Cloud ERP, HCM, SCM, and CX.
 *   **Healthcare**: Discover how Oracle AI and database technologies are transforming healthcare through clinical AI agents and AI-native EHRs.
+*   **Oracle APEX**: Learn about the "GenDev" revolution in low-code development with APEX AI Assistant and native AI application features.
 
 Join us in exploring the transformative power of AI with Oracle! This is a community-driven, open-source project, and we welcome everyone to contribute and help us grow.
