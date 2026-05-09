@@ -1,34 +1,46 @@
-# Oracle AI Database 26ai: Key Features for Developers
+# Oracle AI Database Features: 23ai and 26ai
 
-Oracle AI Database 26ai represents a significant leap forward in integrating artificial intelligence directly into the database, offering a robust platform for developers to build intelligent applications. This long-term support release introduces numerous enhancements and new capabilities designed to streamline AI development and deployment.
+Oracle AI Database represents a significant leap forward in integrating artificial intelligence directly into the database, providing developers with powerful tools to build intelligent applications. This document outlines key features introduced in Oracle Database 23ai and the advanced capabilities expected in Oracle Database 26ai.
 
-## Core AI Capabilities
+## Oracle Database 26ai: Agentic Innovations for Business Data
 
-### AI Vector Search
-Oracle AI Database 26ai significantly enhances **AI Vector Search**, providing efficient storage and rapid retrieval of semantic data. This capability is crucial for applications requiring similarity searches, recommendation engines, and contextual understanding of unstructured data [1]. Developers can leverage AI Vector Search to integrate machine learning models directly with their operational data, enabling real-time insights and intelligent decision-making.
+Oracle Database 26ai is designed to accelerate enterprise innovation by enabling secure, scalable agentic AI applications. It architects AI and data together across operational databases and analytic lakehouses, allowing AI agents to securely access real-time enterprise data and leverage business data with Large Language Models (LLMs) [1].
 
-### Agentic AI Capabilities
-The database now incorporates advanced **Agentic AI Capabilities**, embedding autonomous reasoning and persistent memory directly within the database engine. This allows for the creation of dynamic AI workflows that can combine private database data with public information, leading to sophisticated answers and actions [2]. These capabilities are designed to accelerate enterprise innovation and enhance data management.
+### Key Agentic AI Capabilities:
 
-### Trusted Answer Search
-To ensure reliable and deterministic responses from AI agents, Oracle AI Database 26ai introduces **Trusted Answer Search**. This feature redirects AI agents to a Retrieval Augmented Generation (RAG) vector search, ensuring that responses are grounded in factual data stored within the database, thereby reducing hallucinations and improving accuracy [3].
+*   **Oracle Autonomous AI Vector Database**: This feature offers the simplicity of a vector database combined with the full power of Oracle AI Database. It provides intuitive APIs and a user-friendly web interface for developers and data scientists to build vector-powered applications rapidly. Built on Oracle Autonomous AI Database, it ensures enterprise-grade security, reliability, and scalability [1].
 
-### Select AI
-**Select AI** provides secure, natural language access to Oracle data, enabling users to query the database using conversational language rather than complex SQL [4]. This feature, particularly with its integration with platforms like Gemini Enterprise, democratizes data access and allows a broader range of users to interact with and extract insights from their data without extensive technical knowledge.
+*   **Oracle AI Database Private Agent Factory**: This no-code AI agent builder allows business analysts and domain experts to quickly build and deploy data-driven agents and workflows. It runs as a container in public clouds or on-premises, ensuring data security by preventing data sharing with third parties. The factory includes pre-built AI agents such as the Database Knowledge Agent, Structured Data Analysis Agent, and Deep Data Research Agent [1].
 
-## Developer-Focused Enhancements
+*   **Oracle Unified Memory Core**: This unique capability enables low-latency reasoning across diverse data types—vector, JSON, graph, relational, text, spatial, and columnar—within a single converged engine, maintaining consistent transactions and security [1].
 
-### GraphQL Table Function
-Oracle AI Database 26ai includes a new **GraphQL Table Function**, offering developers a modern and flexible way to interact with database data using GraphQL queries. This simplifies data retrieval and manipulation for applications built with GraphQL, providing a more efficient and developer-friendly experience.
+*   **Oracle Vectors on Ice**: Provides native support for vector data stored in Apache Iceberg tables. AI Vector Search can directly read and index vector data from Iceberg tables, with automatic index updates as the underlying data changes. This enables unified AI search across business data in the database and data lakes [1].
 
-### JSON Duality and MongoDB API
-Working with document data is streamlined through **JSON Duality** and the **MongoDB API**. These features allow developers to treat relational data as JSON documents and vice-versa, offering flexibility in data modeling and integration with existing MongoDB-based applications [1].
+*   **Oracle Autonomous AI Database MCP Server**: Facilitates secure access for external AI agents and Model Context Protocol (MCP) clients to Autonomous AI Database capabilities without requiring custom integration code or manual security administration [1].
 
-### SQL and PL/SQL Enhancements
-The release also brings significant improvements to **SQL and PL/SQL**, introducing new data types and language features specifically tailored for AI workloads. These enhancements enable developers to write more efficient and powerful database programs that can leverage the full potential of the AI Database [3].
+### Enhanced Security Features:
+
+*   **Oracle Deep Data Security**: Implements powerful, end-user-specific data access rules directly within the database. This ensures that each end-user or AI agent can only access data they are authorized to see, providing robust protection against new AI-era threats like prompt injection through declarative, database-native controls [1].
+
+*   **Oracle Private AI Services Container**: Designed for customers with stringent security requirements, this allows running private instances of AI models, preventing data sharing with third-party AI providers or sending data outside the firewall. It also helps mitigate performance bottlenecks by offloading compute-intensive AI tasks, such as vector embedding generation, outside the database while keeping all data secure within the environment [1].
+
+*   **Oracle Trusted Answer Search**: Offers an accurate, testable, and deterministic method for using AI to provide answers to end-users. Instead of direct LLM interaction, it uses AI Vector Search to match questions to previously created reports, mitigating the risk of LLM hallucinations [1].
+
+## Oracle Database 23ai: Foundations for AI
+
+Oracle Database 23ai, initially known as 23c, introduced foundational AI capabilities that set the stage for more advanced features in 26ai. Key innovations include:
+
+*   **AI Vector Search**: This feature introduced native vector data types and indexing, crucial for Retrieval-Augmented Generation (RAG) patterns. It enables searching both structured and unstructured data by semantics or meaning, facilitating ultra-sophisticated AI search capabilities [2, 3, 4].
+
+*   **JSON Relational Duality**: Combines the flexibility of JSON documents with the power and integrity of relational tables, simplifying application development and data management [5].
+
+*   **Property Graph**: Native support for graph queries, allowing for complex relationship analysis directly within the database [6].
 
 ## References
-[1] Oracle AI Database: New Features for Developers. (n.d.). Oracle Learn. Available at: https://learn.oracle.com/ols/course/oracle-ai-database-new-features-for-developers/127088/140907
-[2] Oracle AI Database 26ai Powers the AI for Data Revolution. (2025, October 14). Oracle Newsroom. Available at: https://www.oracle.com/news/announcement/ai-world-database-26ai-powers-the-ai-for-data-revolution-2025-10-14/
-[3] Oracle AI Database 26ai: Putting agents & data on the same page. (n.d.). Oracle. Available at: https://www.oracle.com/a/ocom/docs/database/db-insight-quick-take-oracle-ai-database-26ai.pdf
-[4] Oracle Expands Powerful AI Capabilities in Oracle AI Database at Google Cloud to Supercharge Enterprise Data Innovation. (2026, April 22). Oracle Newsroom. Available at: https://www.oracle.com/news/announcement/oracle-expands-powerful-ai-capabilities-in-oracle-ai-database-at-google-cloud-to-supercharge-enterprise-data-innovation-2026-04-22/
+
+[1] Oracle. (2026, March 24). *Oracle Unveils AI Database Agentic Innovations for Business Data*. [https://www.oracle.com/news/announcement/oracle-unveils-ai-database-agentic-innovations-for-business-data-2026-03-24/](https://www.oracle.com/news/announcement/oracle-unveils-ai-database-agentic-innovations-for-business-data-2026-03-24/)
+[2] Oracle. *AI Vector Search*. [https://www.oracle.com/database/ai-vector-search/](https://www.oracle.com/database/ai-vector-search/)
+[3] Giles, D. (2025, October 14). *Getting Started with Oracle AI Database AI Vector Search*. Oracle Blogs. [https://blogs.oracle.com/database/getting-started-with-oracle-database-23ai-ai-vector-search](https://blogs.oracle.com/database/getting-started-with-oracle-database-23ai-ai-vector-search)
+[4] coretec. (2024, July 16). *Getting started with AI vector search*. Oracle Blogs. [https://blogs.oracle.com/coretec/getting-started-with-vectors-in-23ai](https://blogs.oracle.com/coretec/getting-started-with-vectors-in-23ai)
+[5] Oracle. *JSON Relational Duality*. [https://www.oracle.com/database/json/](https://www.oracle.com/database/json/)
+[6] Oracle. *Property Graph*. [https://www.oracle.com/database/graph/](https://www.oracle.com/database/graph/)

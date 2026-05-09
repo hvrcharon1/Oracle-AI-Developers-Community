@@ -3,17 +3,21 @@
 <p align="center">
   <img src="assets/oracle_ai_logo.png" alt="Oracle AI Developers Community Logo" width="300">
 </p>
-Community provides Technical resources for AI developers building applications, intelligent agents, and scalable systems with Oracle AI Database and OCI services.
 
+Welcome to the **Oracle AI Developers Community**! This repository serves as a comprehensive resource hub for developers building innovative applications, intelligent agents, and scalable systems using Oracle AI Database and Oracle Cloud Infrastructure (OCI) services. Our goal is to foster a vibrant community where knowledge is shared, projects are showcased, and contributions drive the advancement of AI-driven solutions.
 
 ## Our Mission
-Our mission is to empower developers with the resources, knowledge, and tools necessary to build intelligent applications using Oracle AI Database. We aim to create a vibrant hub for sharing ideas, showcasing projects, and contributing to the advancement of AI-driven solutions.
+
+Our mission is to empower developers with the essential resources, in-depth knowledge, and cutting-edge tools required to construct intelligent applications leveraging the power of Oracle AI Database. We are dedicated to cultivating a dynamic environment for exchanging ideas, highlighting groundbreaking projects, and collectively advancing the frontier of AI-powered solutions.
 
 ## What You'll Find Here
-- **Features**: In-depth information on the latest Oracle AI Database features, including AI Vector Search and agentic AI capabilities.
-- **Community**: Insights into how developers are innovating with Oracle AI, use cases, and success stories.
-- **Partners**: A list of our valued partners and contributors who help drive the community forward.
-- **Licensing**: Information regarding the use of Oracle technologies and contributions from partners like Datacules.
-- **Assets**: Logos and other visual resources for the community.
+
+This repository is structured to provide easy access to critical information:
+
+*   **Features**: Explore the latest advancements in Oracle AI Database, including detailed insights into Oracle Database 23ai and the upcoming Oracle Database 26ai, with a focus on AI Vector Search and agentic AI capabilities.
+*   **Community**: Discover how developers are innovating with Oracle AI, delve into compelling use cases, and learn from success stories within our growing community.
+*   **Partners**: Acknowledge our valued partners and contributors, such as Datacules LLC, who are instrumental in propelling the community forward.
+*   **Licensing**: Understand the licensing framework for using Oracle technologies and the attribution guidelines for contributions, including those from partners like Datacules LLC.
+*   **Assets**: Access logos and other visual resources for community use.
 
 Join us in exploring the transformative power of AI with Oracle!
