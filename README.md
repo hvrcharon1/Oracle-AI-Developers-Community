@@ -1,4 +1,8 @@
 # Oracle-AI-Developers-Community
+
+<p align="center">
+  <img src="assets/oracle_ai_logo.png" alt="Oracle AI Developers Community Logo" width="300">
+</p>
 Community provides Technical resources for AI developers building applications, intelligent agents, and scalable systems with Oracle AI Database and OCI services.
 
 
