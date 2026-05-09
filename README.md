@@ -4,7 +4,7 @@
   <img src="assets/oracle_ai_logo.png" alt="Oracle AI Developers Community Logo" width="300">
 </p>
 
-Welcome to the **Oracle AI Developers Community**! This repository serves as a comprehensive resource hub for developers building innovative applications, intelligent agents, and scalable systems using Oracle AI Database and Oracle Cloud Infrastructure (OCI) services. Our goal is to foster a vibrant community where knowledge is shared, projects are showcased, and contributions drive the advancement of AI-driven solutions.
+Welcome to the **Oracle AI Developers Community**! This repository is a **completely open-source** resource hub for developers building innovative applications, intelligent agents, and scalable systems using Oracle AI Database and Oracle Cloud Infrastructure (OCI) services. Our goal is to foster a vibrant, open community where knowledge is shared, projects are showcased, and contributions drive the advancement of AI-driven solutions.
 
 ## Our Mission
 
@@ -23,4 +23,4 @@ This repository is structured to provide easy access to critical information:
 *   **Fusion Applications**: Explore the AI-centric innovations across Oracle Fusion Cloud ERP, HCM, SCM, and CX.
 *   **Healthcare**: Discover how Oracle AI and database technologies are transforming healthcare through clinical AI agents and AI-native EHRs.
 
-Join us in exploring the transformative power of AI with Oracle!
+Join us in exploring the transformative power of AI with Oracle! This is a community-driven, open-source project, and we welcome everyone to contribute and help us grow.
