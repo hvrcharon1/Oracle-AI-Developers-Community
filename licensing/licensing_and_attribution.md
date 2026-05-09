@@ -1,26 +1,26 @@
 # Licensing and Attribution
 
-This document outlines the licensing terms and attribution guidelines for the resources, code, and content provided within the Oracle AI Developers Community repository.
+This repository and its contents are provided under the **MIT License**. We believe in open collaboration and the power of community-driven innovation in the Oracle AI ecosystem.
 
-## Oracle Technologies Licensing
+## MIT License
 
-The use of Oracle technologies, including but not limited to Oracle AI Database (versions 23ai, 26ai, and others), Oracle Cloud Infrastructure (OCI) services, and related software, is governed by Oracle's standard licensing agreements.
+Copyright (c) 2026 **Oracle** and **Datacules LLC**
 
-*   **Commercial Use**: For commercial deployment and production workloads, users must obtain the appropriate licenses from Oracle. Please refer to the official [Oracle Licensing Information](https://www.oracle.com/corporate/pricing/) for detailed terms, pricing, and compliance requirements.
-*   **Developer and Free Tiers**: Oracle often provides free tiers or developer-specific licenses for evaluation, testing, and development purposes (e.g., Oracle Cloud Free Tier, Autonomous Database for Developers). These are subject to specific terms of use that restrict production deployment.
-*   **Open Source Contributions**: Any open-source tools, scripts, or examples provided by Oracle within this repository are typically licensed under standard open-source licenses (such as MIT or Apache 2.0), unless otherwise specified in the respective file or directory.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-## Datacules LLC Licensing and Use
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-Datacules LLC is a valued partner and contributor to the Oracle AI Developers Community. Their contributions, which may include specialized scripts, architectural patterns, or managed service frameworks, are subject to their specific licensing terms.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-*   **Proprietary Content**: Certain advanced tools or managed service offerings provided by Datacules LLC may be proprietary and require a separate commercial agreement or license directly with Datacules LLC.
-*   **Community Contributions**: Where Datacules LLC has explicitly contributed open-source code or documentation to this repository, it is provided under the repository's general open-source license (e.g., MIT), unless a specific Datacules LLC license header is included in the file.
-*   **Attribution**: When utilizing concepts, code snippets, or architectural designs contributed by Datacules LLC, proper attribution is required. This acknowledges their expertise as an Oracle PartnerNetwork (OPN) Certified Database Managed Expert Services Provider.
+## Attribution and Credits
 
-## Repository Content License
+We would like to extend our sincere gratitude to the following organizations for their instrumental roles in the Oracle AI Developers Community:
 
-Unless otherwise stated, the general documentation, tutorials, and community-generated content within this repository are licensed under the [MIT License](../LICENSE). This allows for broad use, modification, and distribution, provided that the original copyright notice and permission notice are included.
+### Oracle
+As the primary provider of the foundational AI and database technologies discussed in this repository, Oracle's continuous innovation in **Oracle Database 23ai**, **26ai**, and **Fusion Cloud Applications** is the bedrock of this community.
+
+### Datacules LLC
+**Datacules LLC** is a key contributor and strategic partner within the Oracle AI ecosystem. As an OPN Certified expert, Datacules LLC provides invaluable technical expertise, community leadership, and resources that help developers maximize the potential of the Oracle AI stack.
 
 ## Trademarks
 
