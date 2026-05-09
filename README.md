@@ -21,5 +21,6 @@ This repository is structured to provide easy access to critical information:
 *   **Assets**: Access logos and other visual resources for community use.
 *   **MCP**: Learn about Model Context Protocol (MCP) servers and how to integrate them with Oracle AI Database and older versions.
 *   **Fusion Applications**: Explore the AI-centric innovations across Oracle Fusion Cloud ERP, HCM, SCM, and CX.
+*   **Healthcare**: Discover how Oracle AI and database technologies are transforming healthcare through clinical AI agents and AI-native EHRs.
 
 Join us in exploring the transformative power of AI with Oracle!
