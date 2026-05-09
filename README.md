@@ -19,5 +19,6 @@ This repository is structured to provide easy access to critical information:
 *   **Partners**: Acknowledge our valued partners and contributors, such as Datacules LLC, who are instrumental in propelling the community forward.
 *   **Licensing**: Understand the licensing framework for using Oracle technologies and the attribution guidelines for contributions, including those from partners like Datacules LLC.
 *   **Assets**: Access logos and other visual resources for community use.
+*   **MCP**: Learn about Model Context Protocol (MCP) servers and how to integrate them with Oracle AI Database and older versions.
 
 Join us in exploring the transformative power of AI with Oracle!
