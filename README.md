@@ -24,5 +24,6 @@ This repository is structured to provide easy access to critical information:
 *   **Healthcare**: Discover how Oracle AI and database technologies are transforming healthcare through clinical AI agents and AI-native EHRs.
 *   **Oracle APEX**: Learn about the "GenDev" revolution in low-code development with APEX AI Assistant and native AI application features.
 *   **Oracle Cloud Infrastructure (OCI)**: Explore the high-performance foundation for enterprise AI, including OCI Enterprise AI, AI Agent Platform, and NVIDIA Blackwell integration.
+*   **IDEs**: Discover how popular IDEs like VS Code, Cursor, and SQL Developer integrate with Oracle AI Database and OCI.
 
 Join us in exploring the transformative power of AI with Oracle! This is a community-driven, open-source project, and we welcome everyone to contribute and help us grow.
