@@ -178,9 +178,9 @@ services:
 
 **Fix:** Use a password with **only letters and numbers** (mixed case):
 ```
-✅ Good:  Andromeda92x
+✅ Good:  Myoracle92x
 ✅ Good:  MyOracle2026
-❌ Bad:   Andromeda92!
+❌ Bad:   Myoracle92!
 ❌ Bad:   Welcome123#
 ```
 
