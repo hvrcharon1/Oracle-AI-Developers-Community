@@ -1,8 +1,10 @@
 # Oracle AI Developer Skills
 
-This folder contains a curated library of **practical developer skills** for building with Oracle AI Database, OCI, MCP, and AI agents. Each skill is a self-contained guide covering a specific capability — from vector search and Select AI to MCP server setup and agentic workflows.
+This folder contains a curated library of **practical developer skills** for building with Oracle AI Database, OCI, MCP, and AI agents. Each skill is a self-contained guide covering a specific capability — from vector search and Select AI to core SQL/PL/SQL mastery.
 
-## Skill Index
+---
+
+## 🤖 AI-Powered Skills
 
 | # | Skill | Description |
 |---|---|---|
@@ -22,6 +24,19 @@ This folder contains a curated library of **practical developer skills** for bui
 | 14 | [Oracle Machine Learning (OML) AutoML](14_oracle_machine_learning_automl.md) | Train, evaluate, and deploy ML models entirely in-database — no Python server required |
 | 15 | [PL/SQL Toolbox for AI Agents](15_plsql_toolbox_for_ai_agents.md) | Build robust, type-safe, observable function tools in PL/SQL for AI agent frameworks |
 | 16 | [Blockchain Tables + AI Compliance Audit](16_blockchain_tables_ai_compliance_audit.md) | Create cryptographically tamper-evident audit trails and query them with AI |
+
+---
+
+## 🛠️ Core Developer Skills
+
+| # | Skill | Description |
+|---|---|---|
+| 17 | [Analytical / Window Functions](17_analytical_window_functions.md) | RANK, DENSE_RANK, LAG, LEAD, running totals, moving averages, LISTAGG — the full toolkit |
+| 18 | [Bulk PL/SQL: BULK COLLECT & FORALL](18_bulk_plsql_processing.md) | Process millions of rows with 10×–100× less context-switching overhead |
+| 19 | [Table Partitioning Strategies](19_table_partitioning_strategies.md) | Range, List, Interval, and Composite partitioning for large table management |
+| 20 | [Index Mastery](20_index_mastery.md) | B-tree, function-based, composite, and invisible indexes — choose and test the right one |
+| 21 | [Advanced SQL: CTE, PIVOT, MERGE, CONNECT BY](21_advanced_sql_cte_pivot_merge.md) | Hierarchical queries, dynamic cross-tabs, upserts, and spreadsheet-style calculations |
+| 22 | [PL/SQL Error Handling & Debugging](22_plsql_error_handling_debugging.md) | Exception framework, call stack capture, autonomous-transaction error logger |
 
 ---
 
