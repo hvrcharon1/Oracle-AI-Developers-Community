@@ -24,6 +24,8 @@ This folder contains a curated library of **practical developer skills** for bui
 | 14 | [Oracle Machine Learning (OML) AutoML](14_oracle_machine_learning_automl.md) | Train, evaluate, and deploy ML models entirely in-database — no Python server required |
 | 15 | [PL/SQL Toolbox for AI Agents](15_plsql_toolbox_for_ai_agents.md) | Build robust, type-safe, observable function tools in PL/SQL for AI agent frameworks |
 | 16 | [Blockchain Tables + AI Compliance Audit](16_blockchain_tables_ai_compliance_audit.md) | Create cryptographically tamper-evident audit trails and query them with AI |
+| 23 | [DBMS_VECTOR_CHAIN: Document Chunking & Text Processing](23_dbms_vector_chain_text_processing.md) | Ingest, chunk, embed, and store documents for RAG pipelines — entirely in-database |
+| 24 | [OCI Object Storage: Loading Data into Oracle AI Pipelines](24_oci_object_storage_ai_pipeline.md) | Load CSV, JSON, and Parquet files from OCI Object Storage into Oracle with DBMS_CLOUD |
 
 ---
 
@@ -37,6 +39,9 @@ This folder contains a curated library of **practical developer skills** for bui
 | 20 | [Index Mastery](20_index_mastery.md) | B-tree, function-based, composite, and invisible indexes — choose and test the right one |
 | 21 | [Advanced SQL: CTE, PIVOT, MERGE, CONNECT BY](21_advanced_sql_cte_pivot_merge.md) | Hierarchical queries, dynamic cross-tabs, upserts, and spreadsheet-style calculations |
 | 22 | [PL/SQL Error Handling & Debugging](22_plsql_error_handling_debugging.md) | Exception framework, call stack capture, autonomous-transaction error logger |
+| 25 | [Reading EXPLAIN PLAN & SQL Monitoring](25_explain_plan_sql_monitoring.md) | Diagnose slow queries using execution plans, DISPLAY_CURSOR, and SQL Monitor |
+| 26 | [Dynamic SQL: EXECUTE IMMEDIATE & DBMS_SQL](26_dynamic_sql_execute_immediate.md) | Build runtime SQL safely — bind variables, injection prevention, and DBMS_SQL for unknown schemas |
+| 27 | [Materialized Views & Query Rewrite](27_materialized_views_query_rewrite.md) | Pre-compute aggregations and joins; let Oracle rewrite queries transparently for 10×–1000× speedups |
 
 ---
 
