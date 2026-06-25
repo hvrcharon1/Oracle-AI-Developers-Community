@@ -46,4 +46,14 @@ This folder contains a curated library of **practical developer skills** for bui
 
 ---
 
+## 📝 Attribution
+
+**Skill 28 — Identity-Aware Row-Level Security for AI / MCP Agents** is adapted from the article
+**["Who is using your Oracle data (AI!), and how to secure it!"](https://www.thatjeffsmith.com/archive/2026/05/who-is-using-your-oracle-data-ai-and-how-to-secure-it/)**
+by **Jeff Smith** ([@thatjeffsmith](https://twitter.com/thatjeffsmith)), Oracle Distinguished Product Manager, published May 28, 2026.
+
+The original technique — propagating OAuth identity automatically into `SYS_CONTEXT` via an OCI Database Tools MCP Server, reading it with `CLIENTCONTEXT.OAUTH_SUB`, and enforcing data access rules at the database layer using `DBMS_RLS` (Virtual Private Database) — was first demonstrated by Jeff Smith on his blog [ThatJeffSmith.com](https://www.thatjeffsmith.com). The `who` diagnostic tool concept also originates from that article. All SQL examples and architectural patterns in Skill 28 are adapted from or directly inspired by his original work.
+
+---
+
 *Skills are maintained by the Oracle AI Developers Community. Contributions welcome — see [CONTRIBUTING.md](../CONTRIBUTING.md).*
