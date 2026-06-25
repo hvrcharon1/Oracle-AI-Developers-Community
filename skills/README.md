@@ -27,6 +27,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 23 | [DBMS_VECTOR_CHAIN: Document Chunking & Text Processing](23_dbms_vector_chain_text_processing.md) | Ingest, chunk, embed, and store documents for RAG pipelines — entirely in-database |
 | 24 | [OCI Object Storage: Loading Data into Oracle AI Pipelines](24_oci_object_storage_ai_pipeline.md) | Load CSV, JSON, and Parquet files from OCI Object Storage into Oracle with DBMS_CLOUD |
 | 28 | [Identity-Aware Row-Level Security for AI / MCP Agents](28_identity_aware_row_level_security_ai_agents/SKILL.md) | Propagate OAuth caller identity into the DB session via MCP, then enforce it with VPD/Row-Level Security — any provider, any model |
+| 29 | [Maximizing Coding Agents as an Oracle AI Database Developer](29_maximizing_coding_agents_oracle_developer.md) | The complete practitioner loop: SQLcl MCP setup, schema intent via COMMENT ON + ANNOTATIONS, doc-backed prompting, /plan-first discipline, and the 6-step Oracle AI Database agent workflow |
 
 ---
 
@@ -53,6 +54,14 @@ This folder contains a curated library of **practical developer skills** for bui
 by **Jeff Smith** ([@thatjeffsmith](https://twitter.com/thatjeffsmith)), Oracle Distinguished Product Manager, published May 28, 2026.
 
 The original technique — propagating OAuth identity automatically into `SYS_CONTEXT` via an OCI Database Tools MCP Server, reading it with `CLIENTCONTEXT.OAUTH_SUB`, and enforcing data access rules at the database layer using `DBMS_RLS` (Virtual Private Database) — was first demonstrated by Jeff Smith on his blog [ThatJeffSmith.com](https://www.thatjeffsmith.com). The `who` diagnostic tool concept also originates from that article. All SQL examples and architectural patterns in Skill 28 are adapted from or directly inspired by his original work.
+
+---
+
+**Skill 29 — Maximizing Coding Agents as an Oracle AI Database Developer** is inspired by the article
+**["Get More Out of Your Coding Agents (as an Oracle Developer)"](https://andersswanson.dev/2026/06/15/get-more-out-of-your-coding-agents-as-an-oracle-developer/)**
+by **Anders Swanson** ([@anders__swanson](https://twitter.com/anders__swanson)), published June 15, 2026 on [andersswanson.dev](https://andersswanson.dev).
+
+The foundational ideas in Skill 29 — using agent skills as token-efficient modules, connecting agents via SQLcl MCP with low-privilege schemas, embedding prose intent in `COMMENT ON` and machine-readable hints in the Oracle `ANNOTATIONS` clause, enriching context with exact Oracle documentation, using `/plan` as the primary error-correction gate, and the complete 6-step Oracle AI Database agent loop — all originate from Anders Swanson's article. The SQL examples, prompt templates, plan review checklist, and Oracle-vs-PostgreSQL comparison guide in Skill 29 are expanded from or directly inspired by his original work. Anders Swanson is a regular contributor to Oracle AI Database developer education and maintains code samples at [anders-swanson.github.io/oracle-database-code-samples](https://anders-swanson.github.io/oracle-database-code-samples/#/).
 
 ---
 
