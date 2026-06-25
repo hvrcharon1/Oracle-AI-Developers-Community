@@ -26,6 +26,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 16 | [Blockchain Tables + AI Compliance Audit](16_blockchain_tables_ai_compliance_audit.md) | Create cryptographically tamper-evident audit trails and query them with AI |
 | 23 | [DBMS_VECTOR_CHAIN: Document Chunking & Text Processing](23_dbms_vector_chain_text_processing.md) | Ingest, chunk, embed, and store documents for RAG pipelines — entirely in-database |
 | 24 | [OCI Object Storage: Loading Data into Oracle AI Pipelines](24_oci_object_storage_ai_pipeline.md) | Load CSV, JSON, and Parquet files from OCI Object Storage into Oracle with DBMS_CLOUD |
+| 28 | [Identity-Aware Row-Level Security for AI / MCP Agents](28_identity_aware_row_level_security_ai_agents.md) | Propagate OAuth caller identity into the DB session via MCP, then enforce it with VPD/Row-Level Security — any provider, any model |
 
 ---
 
