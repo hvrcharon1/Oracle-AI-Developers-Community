@@ -44,6 +44,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 25 | [Reading EXPLAIN PLAN & SQL Monitoring](25_explain_plan_sql_monitoring.md) | Diagnose slow queries using execution plans, DISPLAY_CURSOR, and SQL Monitor |
 | 26 | [Dynamic SQL: EXECUTE IMMEDIATE & DBMS_SQL](26_dynamic_sql_execute_immediate.md) | Build runtime SQL safely — bind variables, injection prevention, and DBMS_SQL for unknown schemas |
 | 27 | [Materialized Views & Query Rewrite](27_materialized_views_query_rewrite.md) | Pre-compute aggregations and joins; let Oracle rewrite queries transparently for 10×–1000× speedups |
+| 30 | [SQL Assertions: Guaranteeing At-Least-One Relationships](30_sql_assertions_at_least_one_relationships.md) | Enforce "every parent needs at least one child" rules with 23.26.1+ assertions, plus a composite-FK fallback for earlier releases |
 
 ---
 
@@ -62,6 +63,14 @@ The original technique — propagating OAuth identity automatically into `SYS_CO
 by **Anders Swanson** ([@anders__swanson](https://twitter.com/anders__swanson)), published June 15, 2026 on [andersswanson.dev](https://andersswanson.dev).
 
 The foundational ideas in Skill 29 — using agent skills as token-efficient modules, connecting agents via SQLcl MCP with low-privilege schemas, embedding prose intent in `COMMENT ON` and machine-readable hints in the Oracle `ANNOTATIONS` clause, enriching context with exact Oracle documentation, using `/plan` as the primary error-correction gate, and the complete 6-step Oracle AI Database agent loop — all originate from Anders Swanson's article. The SQL examples, prompt templates, plan review checklist, and Oracle-vs-PostgreSQL comparison guide in Skill 29 are expanded from or directly inspired by his original work. Anders Swanson is a regular contributor to Oracle AI Database developer education and maintains code samples at [anders-swanson.github.io/oracle-database-code-samples](https://anders-swanson.github.io/oracle-database-code-samples/#/).
+
+---
+
+**Skill 30 — SQL Assertions: Guaranteeing At-Least-One Relationships** is adapted from the article
+**["Guarantee at least one in one-to-many relationships in Oracle AI Database"](https://blogs.oracle.com/sql/guarantee-at-least-one-in-one-to-many-relationships-in-oracle-ai-database)**
+by **Chris Saxon**, Oracle Developer Advocate for SQL ([All Things SQL](https://blogs.oracle.com/sql/authors/chris-saxon/)), published June 25, 2026.
+
+The core technique — using the 23.26.1+ `CREATE ASSERTION ... ALL ... SATISFY` syntax with `DEFERRABLE INITIALLY DEFERRED` to guarantee a parent row has at least one child, and the composite-foreign-key fallback (with its "wrong-parent" scoping gotcha) for releases before 23.26.1 — originates from Chris Saxon's article. The SQL examples, error-code reference, and decision guide in Skill 30 are adapted from or directly inspired by his original work.
 
 ---
 
