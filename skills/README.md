@@ -46,6 +46,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 27 | [Materialized Views & Query Rewrite](27_materialized_views_query_rewrite.md) | Pre-compute aggregations and joins; let Oracle rewrite queries transparently for 10×–1000× speedups |
 | 30 | [SQL Assertions: Guaranteeing At-Least-One Relationships](30_sql_assertions_at_least_one_relationships.md) | Enforce "every parent needs at least one child" rules with 23.26.1+ assertions, plus a composite-FK fallback for earlier releases |
 | 31 | [Diagnosing Hidden Characters with DUMP()](31_diagnosing_hidden_characters_with_dump.md) | Spot and fix exact-match failures (APEX Popup LOV, WHERE-clause equality, unique keys, joins) caused by invisible CR/LF or trailing whitespace |
+| 32 | [Real-Time GPS Tracking in Oracle APEX with Supabase and Leaflet](32_realtime_gps_tracking_apex_supabase_leaflet.md) | Add a live-updating map to an APEX app — Oracle as system of record, Supabase Realtime for WebSocket push, Leaflet for rendering, OSRM for free road-network routing |
 
 ---
 
@@ -80,6 +81,14 @@ The core technique — using the 23.26.1+ `CREATE ASSERTION ... ALL ... SATISFY`
 by **Ayush**, Oracle ACE Associate ([Oracle APEX hub](https://oracleapexhub.in/author/ayushsingh290304gmail-com/)), published June 29, 2026.
 
 The core scenario — an APEX Popup LOV silently failing to match a value that a Select List built from the same query displays without complaint, traced to hidden `CHR(13)`/`CHR(10)` bytes appended to the stored value and confirmed with `DUMP()` — originates from Ayush's article. The diagnostic query pattern, the cleanup approach, and the explanation of why rendering tolerates invisible bytes while exact-match comparisons don't are adapted from or directly inspired by his original work. All code examples, table/column names, and prose in Skill 31 were independently written and are not reproduced from the original post.
+
+---
+
+**Skill 32 — Real-Time GPS Tracking in Oracle APEX with Supabase and Leaflet** is based on the article
+**["Real-Time GPS Tracking in Oracle APEX Using Supabase and Leaflet"](https://medium.com/@kamrulfardaus/real-time-gps-tracking-in-oracle-apex-using-supabase-and-leaflet-106bcf24c6aa)**
+by **Md.Kamrul Fardaus**, published on Medium, July 4, 2026.
+
+The core architecture — using Oracle APEX as the enterprise frontend and system of record while Supabase's Realtime WebSocket channel carries the live-position stream and Leaflet.js renders the map — along with the ID-keyed marker-registry fix for duplicate markers, the Supabase Row Level Security anonymous-write gotcha, the APEX PWA + `wakeLock` tracker pattern and its background-tracking limitation, and the free OSRM routing / coordinate-order gotcha, originates from Md.Kamrul Fardaus's article. All code examples, table/column names, and prose in Skill 32 were independently written and are not reproduced from the original post.
 
 ---
 
