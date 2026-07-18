@@ -45,6 +45,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 26 | [Dynamic SQL: EXECUTE IMMEDIATE & DBMS_SQL](26_dynamic_sql_execute_immediate.md) | Build runtime SQL safely — bind variables, injection prevention, and DBMS_SQL for unknown schemas |
 | 27 | [Materialized Views & Query Rewrite](27_materialized_views_query_rewrite.md) | Pre-compute aggregations and joins; let Oracle rewrite queries transparently for 10×–1000× speedups |
 | 30 | [SQL Assertions: Guaranteeing At-Least-One Relationships](30_sql_assertions_at_least_one_relationships.md) | Enforce "every parent needs at least one child" rules with 23.26.1+ assertions, plus a composite-FK fallback for earlier releases |
+| 31 | [Diagnosing Hidden Characters with DUMP()](31_diagnosing_hidden_characters_with_dump.md) | Spot and fix exact-match failures (APEX Popup LOV, WHERE-clause equality, unique keys, joins) caused by invisible CR/LF or trailing whitespace |
 
 ---
 
@@ -71,6 +72,14 @@ The foundational ideas in Skill 29 — using agent skills as token-efficient mod
 by **Chris Saxon**, Oracle Developer Advocate for SQL ([All Things SQL](https://blogs.oracle.com/sql/authors/chris-saxon/)), published June 25, 2026.
 
 The core technique — using the 23.26.1+ `CREATE ASSERTION ... ALL ... SATISFY` syntax with `DEFERRABLE INITIALLY DEFERRED` to guarantee a parent row has at least one child, and the composite-foreign-key fallback (with its "wrong-parent" scoping gotcha) for releases before 23.26.1 — originates from Chris Saxon's article. The SQL examples, error-code reference, and decision guide in Skill 30 are adapted from or directly inspired by his original work.
+
+---
+
+**Skill 31 — Diagnosing Hidden Characters with DUMP()** is based on the debugging write-up
+**["Same Row. Same Value. Two Different Results. Here's Why."](https://oracleapexhub.in/same-row-same-value-two-different-results-heres-why/)**
+by **Ayush**, Oracle ACE Associate ([Oracle APEX hub](https://oracleapexhub.in/author/ayushsingh290304gmail-com/)), published June 29, 2026.
+
+The core scenario — an APEX Popup LOV silently failing to match a value that a Select List built from the same query displays without complaint, traced to hidden `CHR(13)`/`CHR(10)` bytes appended to the stored value and confirmed with `DUMP()` — originates from Ayush's article. The diagnostic query pattern, the cleanup approach, and the explanation of why rendering tolerates invisible bytes while exact-match comparisons don't are adapted from or directly inspired by his original work. All code examples, table/column names, and prose in Skill 31 were independently written and are not reproduced from the original post.
 
 ---
 
