@@ -47,6 +47,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 30 | [SQL Assertions: Guaranteeing At-Least-One Relationships](30_sql_assertions_at_least_one_relationships.md) | Enforce "every parent needs at least one child" rules with 23.26.1+ assertions, plus a composite-FK fallback for earlier releases |
 | 31 | [Diagnosing Hidden Characters with DUMP()](31_diagnosing_hidden_characters_with_dump.md) | Spot and fix exact-match failures (APEX Popup LOV, WHERE-clause equality, unique keys, joins) caused by invisible CR/LF or trailing whitespace |
 | 32 | [Real-Time GPS Tracking in Oracle APEX with Supabase and Leaflet](32_realtime_gps_tracking_apex_supabase_leaflet.md) | Add a live-updating map to an APEX app — Oracle as system of record, Supabase Realtime for WebSocket push, Leaflet for rendering, OSRM for free road-network routing |
+| 33 | [Root-Cause Diagnosis: Design Problem or Database Problem?](33_root_cause_diagnosis_design_vs_database.md) | Decompose "slow" into cost-per-execution × execution count, and diagnose which factor is actually inflated before reaching for an index |
 
 ---
 
