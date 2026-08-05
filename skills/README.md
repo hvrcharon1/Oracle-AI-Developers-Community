@@ -28,6 +28,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 24 | [OCI Object Storage: Loading Data into Oracle AI Pipelines](24_oci_object_storage_ai_pipeline.md) | Load CSV, JSON, and Parquet files from OCI Object Storage into Oracle with DBMS_CLOUD |
 | 28 | [Identity-Aware Row-Level Security for AI / MCP Agents](28_identity_aware_row_level_security_ai_agents/SKILL.md) | Propagate OAuth caller identity into the DB session via MCP, then enforce it with VPD/Row-Level Security — any provider, any model |
 | 29 | [Maximizing Coding Agents as an Oracle AI Database Developer](29_maximizing_coding_agents_oracle_developer.md) | The complete practitioner loop: SQLcl MCP setup, schema intent via COMMENT ON + ANNOTATIONS, doc-backed prompting, /plan-first discipline, and the 6-step Oracle AI Database agent workflow |
+| 34 | [Converged Database Architecture](34_converged_database_architecture.md) | The five guarantees — one transaction boundary, one optimizer, one consistency model, one governance domain, shared access surfaces — that separate a converged database from one that merely stores multiple models |
 
 ---
 
@@ -90,6 +91,14 @@ The core scenario — an APEX Popup LOV silently failing to match a value that a
 by **Md.Kamrul Fardaus**, published on Medium, July 4, 2026.
 
 The core architecture — using Oracle APEX as the enterprise frontend and system of record while Supabase's Realtime WebSocket channel carries the live-position stream and Leaflet.js renders the map — along with the ID-keyed marker-registry fix for duplicate markers, the Supabase Row Level Security anonymous-write gotcha, the APEX PWA + `wakeLock` tracker pattern and its background-tracking limitation, and the free OSRM routing / coordinate-order gotcha, originates from Md.Kamrul Fardaus's article. All code examples, table/column names, and prose in Skill 32 were independently written and are not reproduced from the original post.
+
+---
+
+**Skill 34 — Converged Database Architecture** is based on the article
+**["What Is a Converged Database? Definition, Five Tests, and AI Use Cases"](https://blogs.oracle.com/developers/what-is-a-converged-database-definition-five-tests-and-ai-use-cases)**
+by **Rick Houlihan**, Principal Technologist, Oracle Data & AI Platform, published on the [Oracle Developers Blog](https://blogs.oracle.com/developers/), June 24, 2026.
+
+The five-tests framework — one transaction boundary, one optimizer, one consistency model, one governance domain, and shared access surfaces as the criteria that separate a converged database from a system that merely stores multiple data models — originates from Rick Houlihan's article, along with its companion proof repository, [oracle-devrel/oracle-umt-developer-hub](https://github.com/oracle-devrel/oracle-umt-developer-hub). All code examples, the patient-care domain used to illustrate each test, and prose in Skill 34 were independently written and are not reproduced from the original post.
 
 ---
 
