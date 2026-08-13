@@ -29,6 +29,8 @@ This folder contains a curated library of **practical developer skills** for bui
 | 28 | [Identity-Aware Row-Level Security for AI / MCP Agents](28_identity_aware_row_level_security_ai_agents/SKILL.md) | Propagate OAuth caller identity into the DB session via MCP, then enforce it with VPD/Row-Level Security — any provider, any model |
 | 29 | [Maximizing Coding Agents as an Oracle AI Database Developer](29_maximizing_coding_agents_oracle_developer.md) | The complete practitioner loop: SQLcl MCP setup, schema intent via COMMENT ON + ANNOTATIONS, doc-backed prompting, /plan-first discipline, and the 6-step Oracle AI Database agent workflow |
 | 34 | [Converged Database Architecture](34_converged_database_architecture.md) | The five guarantees — one transaction boundary, one optimizer, one consistency model, one governance domain, shared access surfaces — that separate a converged database from one that merely stores multiple models |
+| 36 | [APEXlang: Declarative Application Definitions for AI-Generated Enterprise Apps](36_apexlang_ai_application_generator.md) | Why an AI coding agent should target APEXlang's declarative application definition instead of implementation code — the three ways to generate it, and how conversational requests become scoped, reviewable edits |
+| 37 | [Evaluating AI-Generated Enterprise Applications: A Governance-First Framework](37_evaluating_ai_generated_enterprise_apps.md) | A seven-point check, distilled from eleven independent industry analysts, for judging whether any AI application-generation approach is actually enterprise-ready |
 
 ---
 
@@ -99,6 +101,22 @@ The core architecture — using Oracle APEX as the enterprise frontend and syste
 by **Rick Houlihan**, Principal Technologist, Oracle Data & AI Platform, published on the [Oracle Developers Blog](https://blogs.oracle.com/developers/), June 24, 2026.
 
 The five-tests framework — one transaction boundary, one optimizer, one consistency model, one governance domain, and shared access surfaces as the criteria that separate a converged database from a system that merely stores multiple data models — originates from Rick Houlihan's article, along with its companion proof repository, [oracle-devrel/oracle-umt-developer-hub](https://github.com/oracle-devrel/oracle-umt-developer-hub). All code examples, the patient-care domain used to illustrate each test, and prose in Skill 34 were independently written and are not reproduced from the original post.
+
+---
+
+**Skill 36 — APEXlang: Declarative Application Definitions for AI-Generated Enterprise Apps** is based on the article
+**["Oracle APEX AI Application Generator: Bringing AI to Enterprise App Development"](https://blogs.oracle.com/database/oracle-apex-ai-application-generator-bringing-ai-to-enterprise-app-development)**
+by **Michael Hichwa**, SVP, Software Development, Oracle, published on [Oracle Database Insider](https://blogs.oracle.com/database/), August 12, 2026.
+
+APEXlang — the Application Definition Language that lets AI agents generate a structured, declarative application definition (pages, navigation, forms, reports, business logic) instead of implementation code, executed by Oracle APEX's managed runtime — along with the three development paths (AI-assisted App Builder, native AI coding agent, VS Code with the Oracle SQL Developer extension) and the conversational-editing examples, originates from Michael Hichwa's article. All code examples, the definition-edit scoping guidance, and prose in Skill 36 were independently written and are not reproduced from the original post.
+
+---
+
+**Skill 37 — Evaluating AI-Generated Enterprise Applications: A Governance-First Framework** is based on the article
+**["What Industry Analysts are Saying about Oracle APEX AI Application Generator"](https://blogs.oracle.com/database/what-industry-analysts-are-saying-about-oracle-apex-ai-application-generator)**
+by **Ron Craig**, Senior Principal Product Marketing Director, Oracle, published on [Oracle Database Insider](https://blogs.oracle.com/database/), August 12, 2026, compiling independent commentary from analysts **Ashish Chaturvedi** (HFS Research), **Steven Dickens** (HyperFRAME Research), **Steve McDowell** (NAND Research), **Holger Mueller** (Constellation Research), **Matt Kimball** (Moor Insights & Strategy), **Bradley Shimmin** (Futurum), **Dave Vellante** (theCUBE Research), **Stephen Catanzano** (Omdia), **Marc Staimer** (theCUBE Research), **Ron Westfall** (HyperFRAME Research), and **Carl Olofson** (DBMSGuru).
+
+The recurring themes across these independent assessments — that AI-generated applications must be judged on how they are secured, governed, and maintained after generation, not just on generation speed — were distilled into the seven-point enterprise-readiness check in Skill 37. The framework's structure, its scoring questions, and all prose in Skill 37 were independently written and are not reproduced from the original post or any individual analyst's remarks.
 
 ---
 
