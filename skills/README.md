@@ -51,6 +51,7 @@ This folder contains a curated library of **practical developer skills** for bui
 | 31 | [Diagnosing Hidden Characters with DUMP()](31_diagnosing_hidden_characters_with_dump.md) | Spot and fix exact-match failures (APEX Popup LOV, WHERE-clause equality, unique keys, joins) caused by invisible CR/LF or trailing whitespace |
 | 32 | [Real-Time GPS Tracking in Oracle APEX with Supabase and Leaflet](32_realtime_gps_tracking_apex_supabase_leaflet.md) | Add a live-updating map to an APEX app — Oracle as system of record, Supabase Realtime for WebSocket push, Leaflet for rendering, OSRM for free road-network routing |
 | 33 | [Root-Cause Diagnosis: Design Problem or Database Problem?](33_root_cause_diagnosis_design_vs_database.md) | Decompose "slow" into cost-per-execution × execution count, and diagnose which factor is actually inflated before reaching for an index |
+| 38 | [Migrating Oracle Database 23ai Free to Oracle AI Database 26ai Free on Windows](38_migrating_23ai_free_to_26ai_free_windows.md) | Complete Data Pump export/import walkthrough for moving a Windows Oracle Database Free install forward a release — the only supported path, since RU patching, DBUA, and DBCA plug-in upgrades are all unavailable for the Free edition |
 
 ---
 
@@ -117,6 +118,10 @@ APEXlang — the Application Definition Language that lets AI agents generate a 
 by **Ron Craig**, Senior Principal Product Marketing Director, Oracle, published on [Oracle Database Insider](https://blogs.oracle.com/database/), August 12, 2026, compiling independent commentary from analysts **Ashish Chaturvedi** (HFS Research), **Steven Dickens** (HyperFRAME Research), **Steve McDowell** (NAND Research), **Holger Mueller** (Constellation Research), **Matt Kimball** (Moor Insights & Strategy), **Bradley Shimmin** (Futurum), **Dave Vellante** (theCUBE Research), **Stephen Catanzano** (Omdia), **Marc Staimer** (theCUBE Research), **Ron Westfall** (HyperFRAME Research), and **Carl Olofson** (DBMSGuru).
 
 The recurring themes across these independent assessments — that AI-generated applications must be judged on how they are secured, governed, and maintained after generation, not just on generation speed — were distilled into the seven-point enterprise-readiness check in Skill 37. The framework's structure, its scoring questions, and all prose in Skill 37 were independently written and are not reproduced from the original post or any individual analyst's remarks.
+
+---
+
+**Skill 38 — Migrating Oracle Database 23ai Free to Oracle AI Database 26ai Free on Windows** is compiled from Oracle's own official documentation rather than a single third-party article: primarily the [Oracle AI Database Free Installation Guide, 26ai for Microsoft Windows](https://docs.oracle.com/en/database/oracle/oracle-database/26/xeinw/index.html) (Chapter 8, "Moving from Previous Versions of Oracle Database XE or Free to Oracle AI Database Free"), the [Oracle AI Database 26ai Free FAQ](https://www.oracle.com/database/free/faq/), and [ORACLE-BASE's 26ai upgrade overview](https://oracle-base.com/articles/26/oracle-26-upgrade-overview). The confirmation that Release Update patching specifically fails on the Free edition (as opposed to being merely undocumented) draws on independent real-world testing published by **Alex Zaballa** in ["Moving Older Oracle XE Versions to Oracle AI Database Free 26ai — Is it possible?"](https://alexzaballa.com/moving-older-oracle-xe-versions-to-oracle-ai-database-free-26ai-is-it-possible/). All steps, commands, and prose in Skill 38 were independently written for a Windows 23ai Free → 26ai Free scenario specifically, adapting the general export/import pattern these sources document.
 
 ---
 
