@@ -96,6 +96,182 @@ sequenceDiagram
 
 **Security pattern:** store clinical images/data without embedded identity by default, so a data breach of the image store alone does not expose whose record it is; identity resolution requires separate, protected access to the EHR system.
 
+## Illustrative Oracle 23ai/26ai Implementation Patterns
+
+> The session names no concrete technology stack for its own systems. Everything in this section is **added by this skill, not part of the original conversation** — one concrete way an Oracle Database 23ai/26ai-based system could realize the architectural principles above, using Oracle's actual AI Vector Search, Select AI (`DBMS_CLOUD_AI`), JSON-Relational Duality Views, and Data Redaction features. Treat it as a reference pattern to adapt, not as Oracle Health's disclosed internal implementation.
+
+### A. Layered reference architecture
+
+```mermaid
+flowchart TD
+    subgraph Ingest["Ingestion"]
+        I1["FHIR feed — Epic"]
+        I2["FHIR feed — Cerner Millennium"]
+        I3["FHIR feed — Allscripts"]
+    end
+    Ingest --> JRD["JSON-Relational Duality Views<br/>(FHIR-shaped JSON over relational tables)"]
+    JRD --> Core[("Oracle Database 23ai/26ai")]
+    Core --> VEC["VECTOR columns + vector indexes<br/>(imaging features, notes, payer policy text)"]
+    Core --> Redact["Data Redaction / VPD<br/>(identity hidden from image + note storage)"]
+    VEC --> Agents["Agent layer (Select AI profiles / tool-calling agents)"]
+    Agents --> A1[Ambient documentation agent]
+    Agents --> A2[Diagnostic imaging similarity agent]
+    Agents --> A3[Prior-authorization RAG agent]
+    A1 --> UI1["Clinician review console (APEX)"]
+    A2 --> UI1
+    A3 --> UI2[Payer gateway]
+    Core --> UI3[Patient portal]
+    Core --> UI4[Public-health dashboard]
+```
+
+### B. Multi-EHR ingestion via JSON-Relational Duality Views
+
+Duality views let an ingestion adapter write/read one FHIR-shaped JSON document per patient regardless of the originating EHR's native format, while the data underneath stays in ordinary, constrained relational tables — one concrete way to realize "the record belongs to the patient, assembled across sources."
+
+```sql
+CREATE TABLE patients (
+    patient_id  NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    mrn         VARCHAR2(64) NOT NULL,
+    source_ehr  VARCHAR2(20) NOT NULL,   -- 'CERNER' | 'EPIC' | 'ALLSCRIPTS'
+    birth_date  DATE
+);
+
+CREATE TABLE encounters (
+    encounter_id   NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    patient_id     NUMBER NOT NULL REFERENCES patients(patient_id),
+    encounter_type VARCHAR2(64),
+    encounter_ts   TIMESTAMP
+);
+
+CREATE OR REPLACE JSON RELATIONAL DUALITY VIEW patient_record_dv AS
+patients @insert @update
+{
+    _id: patient_id,
+    mrn: mrn,
+    sourceEhr: source_ehr,
+    birthDate: birth_date,
+    encounters: encounters @insert @update @delete
+    {
+        encounterId: encounter_id,
+        type: encounter_type,
+        timestamp: encounter_ts
+    }
+};
+```
+
+### C. Ambient documentation as a draft-then-approve state machine
+
+Models the "agent drafts, clinician approves" principle as an explicit workflow state rather than letting an agent write directly to the record.
+
+```sql
+CREATE TABLE clinical_note_drafts (
+    draft_id      NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    encounter_id  NUMBER NOT NULL REFERENCES encounters(encounter_id),
+    draft_text    CLOB,
+    draft_orders  JSON,
+    status        VARCHAR2(20) DEFAULT 'PENDING_REVIEW'
+                   CHECK (status IN ('PENDING_REVIEW','APPROVED','EDITED','REJECTED')),
+    created_ts    TIMESTAMP DEFAULT SYSTIMESTAMP,
+    reviewed_by   VARCHAR2(64),
+    reviewed_ts   TIMESTAMP
+);
+
+CREATE OR REPLACE PACKAGE ambient_doc_agent AS
+    -- Called by the ambient-listening agent after a consultation
+    PROCEDURE submit_draft(
+        p_encounter_id IN NUMBER,
+        p_draft_text   IN CLOB,
+        p_draft_orders IN JSON
+    );
+
+    -- Called only from the clinician review UI (e.g. an APEX page)
+    PROCEDURE approve_draft(
+        p_draft_id   IN NUMBER,
+        p_reviewer   IN VARCHAR2,
+        p_final_text IN CLOB DEFAULT NULL  -- NULL = approve as drafted
+    );
+END ambient_doc_agent;
+/
+```
+(Package body omitted — the point is the state machine: an agent only ever inserts a `PENDING_REVIEW` row; only `approve_draft`, called by an authenticated clinician session, can move a draft into the record proper.)
+
+### D. Diagnostic imaging similarity search (pluggable per modality)
+
+Maps the "base model + swappable specialty models" plug-in pattern onto AI Vector Search: each modality gets its own vector column/index, and a specialty vendor's model only needs to write into the same shape to participate.
+
+```sql
+CREATE TABLE imaging_studies (
+    study_id     NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    encounter_id NUMBER NOT NULL REFERENCES encounters(encounter_id),
+    modality     VARCHAR2(20),           -- 'CT' | 'MRI' | 'BIOPSY_SLIDE'
+    model_source VARCHAR2(64),           -- e.g. 'NVIDIA_BASE', 'PARTNER_BIOPSY_V2'
+    feature_vec  VECTOR(1024, FLOAT32),  -- dimension/model swappable per vendor
+    findings     JSON
+);
+
+CREATE VECTOR INDEX imaging_feature_idx
+    ON imaging_studies (feature_vec)
+    ORGANIZATION NEIGHBOR PARTITIONS
+    DISTANCE COSINE;
+
+-- Surface comparable prior cases for a new scan in the review console
+SELECT study_id, modality, findings
+FROM   imaging_studies
+WHERE  modality = :new_modality
+ORDER BY VECTOR_DISTANCE(feature_vec, :new_feature_vec, COSINE)
+FETCH FIRST 5 ROWS ONLY;
+```
+
+### E. Prior-authorization pre-screening with Select AI (RAG over payer policy)
+
+Maps "the AI reads every payer rule in exhaustive detail" onto Select AI's retrieval-augmented generation: a vector index built over payer policy documents, queried in natural language before a request is filed.
+
+```sql
+BEGIN
+  DBMS_CLOUD_AI.CREATE_VECTOR_INDEX(
+    index_name => 'PAYER_POLICY_INDEX',
+    attributes => '{"vector_db_provider": "oracle",
+                     "vector_table_name": "payer_policy_vectors",
+                     "vector_distance_metric": "cosine"}'
+  );
+
+  DBMS_CLOUD_AI.CREATE_PROFILE(
+    profile_name => 'PRIOR_AUTH_PROFILE',
+    attributes   => '{"provider": "oci",
+                       "credential_name": "GENAI_CRED",
+                       "vector_index_name": "PAYER_POLICY_INDEX",
+                       "temperature": 0.0}'
+  );
+END;
+/
+
+EXEC DBMS_CLOUD_AI.SET_PROFILE('PRIOR_AUTH_PROFILE');
+
+SELECT AI narrate
+'Given a patient with BMI 27, is GLP-1 therapy X eligible for prior
+ authorization under the current payer policy, and if not, which
+ threshold is missing?';
+```
+
+### F. De-identification by design (Data Redaction)
+
+Expresses "store without identity in the first place" as an enforced Oracle security policy rather than an application-layer convention.
+
+```sql
+BEGIN
+  DBMS_REDACT.ADD_POLICY(
+    object_schema  => 'HEALTH',
+    object_name    => 'PATIENTS',
+    column_name    => 'MRN',
+    policy_name    => 'HIDE_PATIENT_MRN',
+    function_type  => DBMS_REDACT.FULL,
+    expression     => q'[SYS_CONTEXT('EHR_APP','ROLE') != 'EHR_IDENTITY_RESOLVER']'
+  );
+END;
+/
+```
+Any session without the `EHR_IDENTITY_RESOLVER` role sees a redacted MRN; only the protected identity-resolution path can see the real value — the same "identity only resolvable through the protected EHR" pattern described in the session, made concrete and enforced at the SQL layer.
+
 ## Operational Scope Beyond the Clinical Record
 
 The session frames a "complete" health system platform as also covering:
@@ -147,7 +323,7 @@ Based on the strategic guidance in this session, when building an integration or
 
 ## Limitations of This Source
 
-This document reflects a single fireside conversation, not Oracle Health product documentation. Company names, product capabilities, and figures mentioned reflect the speakers' statements as given; several (e.g., the exact scope of the Nvidia diagnostic model, the specific reimbursement-gap figure Dr. Mihaljevic cites) are not independently elaborated in the transcript and should be verified against Oracle Health's official technical and product documentation before being treated as specifications. No code, schema, or API detail was present in the source to extract.
+This document reflects a single fireside conversation, not Oracle Health product documentation. Company names, product capabilities, and figures mentioned reflect the speakers' statements as given; several (e.g., the exact scope of the Nvidia diagnostic model, the specific reimbursement-gap figure Dr. Mihaljevic cites) are not independently elaborated in the transcript and should be verified against Oracle Health's official technical and product documentation before being treated as specifications. No code, schema, or API detail was present in the source itself — the "Illustrative Oracle 23ai/26ai Implementation Patterns" section above is a separate, clearly-marked addition by this skill, not a reconstruction of anything Oracle Health has disclosed about its actual implementation.
 
 ---
 *Source: fireside conversation between Larry Ellison (Oracle) and Dr. Tomislav Mihaljevic, MD (CEO, Cleveland Clinic), Oracle Health and Life Sciences Summit, September 2026, Orlando, FL.*
