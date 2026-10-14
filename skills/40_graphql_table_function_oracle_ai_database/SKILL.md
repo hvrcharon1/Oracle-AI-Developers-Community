@@ -43,18 +43,23 @@ Oracle AI Database 26ai (23.26.0). Never assume it exists on the target database
 
 ```sql
 select banner_full from v$version;
+```
 
--- Smoke test against any table the current user can read
+Then run the smallest possible query against a small table the current user can read (replace the
+two placeholders):
+
+```sql
 select * from graphql('
-t : dual
+t : your_table
 {
-  x : dummy
+  x : your_column
 }');
 ```
 
-- If the smoke test returns a JSON row, continue.
-- If it fails with an invalid-identifier or unknown-function error, stop and tell the user the
-  feature is unavailable on this release rather than rewriting the request into something else.
+- If it returns a JSON row, continue.
+- If it fails with an error that points at `GRAPHQL` itself (unknown function or unsupported
+  syntax) rather than at your table or column names, stop and tell the user the feature is
+  unavailable on this release instead of rewriting the request into something else.
 
 ---
 
@@ -147,7 +152,7 @@ purchase : orders
 
 | Directive | Purpose | Notes |
 |---|---|---|
-| `@link` | Spell out the join when it cannot be inferred from a foreign key | Column names must be **uppercase**. A single column name works when both sides share the name; otherwise give an explicit `from` / `to` pair. Confirm which side `from` and `to` refer to in Oracle's GraphQL Table Function documentation for your release before relying on differently named columns |
+| `@link` | Spell out the join when it cannot be inferred from a foreign key | Column names must be written in **uppercase**. A single column name works when both sides share the name; otherwise give an explicit `from` / `to` pair. Confirm which side `from` and `to` refer to in Oracle's GraphQL Table Function documentation for your release before relying on differently named columns |
 | `@unnest` | Flatten a related table's columns into the current object | Shown above |
 | `@where(sql: "...")` | SQL predicate filter, like a `WHERE` clause | Subqueries are allowed inside the predicate |
 | `@orderby(sql: "...")` | Order the elements of a nested array | Demonstrated on arrays |
@@ -303,7 +308,7 @@ injection-prevention pattern.
   target release. A fallback that follows the demonstrated `@where` pattern is
   `@where(sql: "rownum <= 5")`; remember `ROWNUM` is applied before any ordering, so it is not a
   "top N by X" filter.
-- **`@link` columns must be uppercase.** Lowercase or quoted-mixed-case names will not resolve.
+- **`@link` columns must be uppercase**, as the documentation requires.
 - **`@flex` and `@hidden`** only apply to duality views.
 - **`CHECK` argument on `@where`** is a duality-view option (it flips the filter result and defaults
   to true); the table function ignores it.
