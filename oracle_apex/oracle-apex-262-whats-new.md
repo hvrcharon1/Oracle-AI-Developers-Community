@@ -39,8 +39,9 @@ groups the release into five headline capabilities: file-level import for APEXla
 Security integration, new generative AI provider APIs, Reasoning Effort control for AI Agents, and managed
 identities for secure access to OCI services. This skill gives you, for each one, what it does, the exact
 steps or commands, the gotchas Oracle documents, and how to verify it. Work through the sections that apply,
-and do not report a feature as working until its verification check (Step 8) has actually been run. Where
-this skill says a detail was not verified, look it up in the 26.2 documentation instead of guessing.
+and do not report a feature as working until its check in **Verify before reporting success** has actually
+been run. Where this skill says a detail was not verified, look it up in the 26.2 documentation instead of
+guessing.
 
 ---
 
@@ -66,7 +67,7 @@ this skill says a detail was not verified, look it up in the 26.2 documentation 
 
 ---
 
-## Step 0 — Confirm what you are working on
+## Before you start: confirm what you are working on
 
 ```sql
 select version_no from apex_release;      -- expect a 26.2.x value
@@ -80,7 +81,7 @@ before promising it on a given database.
 
 ---
 
-## Feature 1 — File-level import for APEXlang
+## Feature 1: File-level import for APEXlang
 
 **What it does.** APEX 26.1 introduced APEXlang, a human-readable application definition format stored as `.apx`
 files. Until now, applying even a one-page change meant importing the whole application. In 26.2 you can edit a
@@ -133,7 +134,7 @@ single-file deploys of the application definition file itself.
 
 ---
 
-## Feature 2 — Oracle Deep Data Security integration
+## Feature 2: Oracle Deep Data Security integration
 
 **What it does.** Oracle Deep Data Security enforces data access inside the database at the row, column, and
 individual value level. In 26.2, APEX passes the verified end-user identity (and the application identity) to the
@@ -170,7 +171,7 @@ database session, see [Skill 28](../skills/28_identity_aware_row_level_security_
 
 ---
 
-## Feature 3 — Responses and Interactions APIs for Generative AI Services
+## Feature 3: Responses and Interactions APIs for Generative AI Services
 
 **What it does.** APEX talks to AI providers over REST. Until 26.2 it used OpenAI's Chat Completions API, Gemini's
 `generateContent` API, and OCI Generative AI's Generic API. 26.2 adds the **Responses API** (OpenAI and compatible
@@ -215,7 +216,7 @@ Attributes into the new properties.
 
 ---
 
-## Feature 4 — Reasoning Effort
+## Feature 4: Reasoning Effort
 
 **What it does.** Reasoning Effort (also called Thinking Level) controls how much reasoning a supported model uses
 before it answers or picks its next tool call. Lower effort can cut response time and token use; higher effort suits
@@ -292,7 +293,7 @@ levels before raising effort as a default.
 
 ---
 
-## Feature 5 — Managed identities for OCI services
+## Feature 5: Managed identities for OCI services
 
 **What it does.** APEX Web Credentials can now reference a **DBMS_CLOUD credential** that uses **OCI Native
 Authentication**, including **Resource Principal** (Autonomous AI Database) and **Database Tools Identity**. APEX
@@ -311,7 +312,7 @@ credentials.
 
 Creating the credential grants nothing by itself. The IAM policy sets the permissions.
 
-**Option A — Database Tools Identity (works for any Oracle cloud database service).**
+**Option A: Database Tools Identity (works for any Oracle cloud database service).**
 
 1. In OCI IAM, create a dynamic group for Database Tools connections
    (`ALL { resource.type = 'databasetoolsconnection', resource.compartment.id = '<compartment_ocid>' }`) and a
@@ -330,7 +331,7 @@ Creating the credential grants nothing by itself. The IAM policy sets the permis
    select credential_name from user_credentials where credential_name = 'APEX_OCI_MANAGED';
    ```
 
-**Option B — Resource Principal on Autonomous AI Database.** Create an IAM dynamic group that includes the database
+**Option B: Resource Principal on Autonomous AI Database.** Create an IAM dynamic group that includes the database
 resource, grant it the permissions the target service needs, then enable it (the credential appears as
 `OCI$RESOURCE_PRINCIPAL`):
 
@@ -415,7 +416,7 @@ notes for detail.
 
 ---
 
-## Step 7 — Upgrade checklist (26.1 to 26.2)
+## Upgrade checklist (26.1 to 26.2)
 
 1. Read **Important Information if Updating from a Release Prior to 26.2** and the **Changed Behavior** list in the
    26.2 release notes. It covers Static ID changes, export wizard changes, translation repository data in the APEXlang
@@ -425,13 +426,13 @@ notes for detail.
    Provider API and may need manual changes.
 3. Re-export applications as APEXlang with 26.2 before relying on file-level import.
 4. Check the known-issues page and make sure you have the October 9 download files.
-5. Test in a non-production workspace first. Local Docker users can follow the
-   [APEX 26.1 Docker guide](oracle-apex-261-docker-setup.md) for the environment, using the 26.2 files and the
-   Free developer release's forum-only support in mind.
+5. Test in a non-production workspace first. For a local environment, the
+   [APEX 26.1 Docker guide](oracle-apex-261-docker-setup.md) shows the setup pattern; use the 26.2 download files, and
+   remember that 26.2 on the Free developer release is supported through the Free forum only.
 
 ---
 
-## Step 8 — Verify before reporting success
+## Verify before reporting success
 
 1. File-level import: change one page, import only that file, and confirm unrelated components did not change.
 2. Deep Data Security: run the Sales and Finance test matrix, including the AI Agent path, and confirm the blocked
@@ -440,20 +441,20 @@ notes for detail.
 4. Reasoning Effort: run the same task at two levels and compare answer, latency, and token usage.
 5. Managed identity: the REST test returns data, and removing the IAM policy makes it fail, which proves IAM is the
    gate.
-6. If any step could not be tested (for example, no Deep Data Security policies exist yet), say so explicitly instead
+6. If any check could not be run (for example, no Deep Data Security policies exist yet), say so explicitly instead
    of declaring the feature verified.
 
 ---
 
 ## Non-negotiable rules
 
-- Confirm the APEX release (Step 0) before writing code against a 26.2 feature.
+- Confirm the APEX release before writing code against a 26.2 feature.
 - Treat file-level import as a development and test tool, not a production deployment method.
 - Never guess Deep Data Security syntax or App Builder setting names; take them from the guide for the release in use.
 - Never choose Responses for a service whose endpoint you have not confirmed supports it.
 - Never pick a Reasoning Effort value the provider, API, and model do not support.
 - Never store an OCI user's API private key in APEX when a managed identity is available.
-- Do not claim a feature is verified until its Step 8 check has been run.
+- Do not claim a feature is verified until its check in the Verify section has been run.
 
 ---
 
