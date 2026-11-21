@@ -23,6 +23,7 @@ This repository is structured to provide easy access to critical information:
 *   **Fusion Applications**: Explore the AI-centric innovations across Oracle Fusion Cloud ERP, HCM, SCM, and CX.
 *   **Healthcare**: Discover how Oracle AI and database technologies are transforming healthcare through clinical AI agents and AI-native EHRs.
 *   **Oracle APEX**: Learn about the "GenDev" revolution in low-code development with APEX AI Assistant and native AI application features.
+*   **APEXlang**: Explore Oracle's application definition language for AI-generated APEX applications, with guides, skills, and official references.
 *   **Oracle Cloud Infrastructure (OCI)**: Explore the high-performance foundation for enterprise AI, including OCI Enterprise AI, AI Agent Platform, and NVIDIA Blackwell integration.
 *   **IDEs**: Discover how popular IDEs like VS Code, Cursor, and SQL Developer integrate with Oracle AI Database and OCI.
 
